@@ -7,10 +7,11 @@
 # you're doing.
 Vagrant.configure("2") do |config|
 	config.vm.define "ansible" do |ansible|
-		ansible.vm.box = "geerlingguy/centos7"
+		ansible.vm.box = "geerlingguy/centos8"
 		ansible.vm.hostname = "ansible"
 		ansible.vm.network "private_network", ip: "192.168.33.10"
 		ansible.vm.network "forwarded_port", guest: 80, host: 8080		
+		ansible.vm.synced_folder "shared/", "/home/vagrant/shared"
 		ansible.vm.provider "virtualbox" do |vb|
 			vb.memory = 8192
 			vb.cpus = 2
