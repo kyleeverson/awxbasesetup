@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
 	end
 	config.vm.define "box1" do |box1|
 		box1.vm.box = "geerlingguy/centos8"
-		box1.vm.hostname = "ansible"
+		box1.vm.hostname = "box1"
 		box1.vm.network "private_network", ip: "192.168.33.20"
 		box1.vm.network "forwarded_port", guest: 80, host: 8080		
 		box1.vm.synced_folder "shared/", "/home/vagrant/shared"
