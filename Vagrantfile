@@ -21,12 +21,31 @@ Vagrant.configure("2") do |config|
 		box1.vm.box = "geerlingguy/centos8"
 		box1.vm.hostname = "box1"
 		box1.vm.network "private_network", ip: "192.168.33.20"
-		box1.vm.network "forwarded_port", guest: 80, host: 8080		
 		box1.vm.synced_folder "shared/", "/home/vagrant/shared"
 		box1.vm.provider "virtualbox" do |vb|
 			vb.memory = 8192
 			vb.cpus = 2
 		end
 	end
+        config.vm.define "box2" do |box2|
+                box2.vm.box = "geerlingguy/centos8"
+                box2.vm.hostname = "box2"
+                box2.vm.network "private_network", ip: "192.168.33.21"
+                box2.vm.synced_folder "shared/", "/home/vagrant/shared"
+                box2.vm.provider "virtualbox" do |vb|
+                        vb.memory = 8192
+                        vb.cpus = 2
+                end
+        end
+        config.vm.define "box3" do |box3|
+                box3.vm.box = "geerlingguy/centos8"
+                box3.vm.hostname = "box3"
+                box3.vm.network "private_network", ip: "192.168.33.22"
+                box3.vm.synced_folder "shared/", "/home/vagrant/shared"
+                box3.vm.provider "virtualbox" do |vb|
+                        vb.memory = 8192
+                        vb.cpus = 2
+                end
+        end
 	
 end
